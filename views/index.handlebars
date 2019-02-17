@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="container">	<h1> Welcome </h1>
+		<h5> You logged on as <span id="logged">{{user}}</span></h5>
+		<a href="/logout">Logout</a>
+		</div>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4 text-center">Burgers</h1>
+    </div>
+<form id="addBurger">
+          <input type="text" id="burgerName">
+          <button type="submit" id="add"> Add </button>
+        </form>
+    <div class="row">
+      <div class="col-sm-4">
+        
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title text-center text-primary">Burgers Menu</h3>
+           <form class="delquote1">
+            <ul class="list-group list-group-flush">
+      {{#each burgers}}
+      {{#if this.devoured}}
+       {{else}}
+       
+              <p><span class="label">Burger: </span> {{this.burger_name}}</p>
+              <button type="submit" data-id="{{this.id}}" class=" delquote btn btn-default" >devoure</button>
+              </li>
+                 {{/if}}
+      {{/each}}
+            </ul>
+           </form> 
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+ <h3 class="card-title text-center text-primary">devoure Burgers</h3>
+            <ul class="list-group list-group-flush">
+        {{#each burgers}}
+          {{#if this.devoured}}
+              <li class="list-group-item">{{this.burger_name}}</li>
+          {{else}}
+          {{/if}}
+        {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
